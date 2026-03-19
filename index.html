@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rexz Ramadhan Lebaran</title>
+<title>Rexz Ramadhan Lebaran Meriah</title>
 
 <style>
 body {
@@ -154,6 +154,10 @@ h1 {
 
 <body>
 
+<audio autoplay loop>
+  <source src="https://assets.mixkit.co/active_storage/sfx/1488/1488-preview.mp3" type="audio/mpeg">
+</audio>
+
 <div id="intro"></div>
 
 <h1>🌙 Selamat Ramadhan & Lebaran</h1>
@@ -212,12 +216,18 @@ for(let j=0;j<50;j++){
     document.body.appendChild(star);
 }
 
-/* KEMBANG API RANDOM */
+/* KEMBANG API RANDOM WARNA-WARNI */
+function randomColor() {
+    const colors = ["#FFD700","#FF4500","#1E90FF","#ADFF2F","#FF69B4"];
+    return colors[Math.floor(Math.random()*colors.length)];
+}
+
 for(let k=0;k<10;k++){
     let firework = document.createElement("div");
     firework.className = "firework";
     firework.style.left = Math.random()*window.innerWidth + "px";
     firework.style.top = Math.random()*window.innerHeight/2 + "px";
+    firework.style.background = randomColor();
     document.body.appendChild(firework);
 }
 
