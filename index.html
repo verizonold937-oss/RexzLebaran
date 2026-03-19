@@ -5,62 +5,116 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Selamat Hari Raya</title>
 <style>
-/* Reset sederhana */
+/* Reset dasar */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Gaya halaman modern */
+/* Body */
 body {
-    font-family: 'Segoe UI', Tahoma, sans-serif;
-    background-color: #fefefe;
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #fef9e7, #e0f7fa);
     color: #333;
-    line-height: 1.6;
     text-align: center;
-    padding: 20px;
+    padding: 40px 20px;
+    overflow-x: hidden;
+    position: relative;
 }
 
+/* Animasi confetti */
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background-color: gold;
+    top: -10px;
+    left: 50%;
+    opacity: 0.8;
+    transform: rotate(45deg);
+    animation: fall 5s linear infinite;
+}
+@keyframes fall {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(110vh) rotate(360deg); }
+}
+
+/* Judul */
 h1 {
-    font-size: 2rem;
-    margin-top: 20px;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    border-bottom: 2px solid #ddd;
-    display: inline-block;
-    padding-bottom: 8px;
+    letter-spacing: 2px;
+    color: #27ae60;
+    text-shadow: 0 0 10px #f1c40f, 0 0 20px #f39c12;
+    animation: glowTitle 2s ease-in-out infinite alternate;
+}
+@keyframes glowTitle {
+    from { text-shadow: 0 0 10px #f1c40f, 0 0 20px #f39c12; }
+    to { text-shadow: 0 0 20px #f1c40f, 0 0 40px #f39c12; }
 }
 
+/* Ketupat */
 .ketupat-wrap {
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 40px;
     margin: 40px 0;
 }
-
 .ketupat {
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     background: linear-gradient(135deg, #27ae60, #2ecc71);
     transform: rotate(45deg);
-    animation: glow 1.7s ease-in-out infinite alternate;
-    box-shadow: 0 0 15px rgba(46, 204, 113, 0.7);
+    animation: pulse 1.5s ease-in-out infinite alternate, swing 3s ease-in-out infinite alternate;
+    box-shadow: 0 0 20px #2ecc71, 0 0 40px #27ae60 inset;
+    border-radius: 5px;
 }
-
-@keyframes glow {
+@keyframes pulse {
     from { transform: rotate(45deg) scale(1); opacity: 1; }
-    to { transform: rotate(45deg) scale(1.3); opacity: 0.75; }
+    to { transform: rotate(45deg) scale(1.3); opacity: 0.8; }
+}
+@keyframes swing {
+    0% { transform: rotate(45deg) translateY(0); }
+    50% { transform: rotate(45deg) translateY(-10px); }
+    100% { transform: rotate(45deg) translateY(0); }
 }
 
+/* Pesan */
 p {
     margin: 15px 0;
+    font-size: 1.1rem;
 }
 
+/* Footer */
 .footer {
-    margin-top: 40px;
+    margin-top: 50px;
     font-size: 0.9rem;
     color: #555;
+}
+
+/* Warna teks arab dan efek */
+.emphasize {
+    color: #f39c12;
+    font-weight: bold;
+    text-shadow: 0 0 5px #f1c40f;
+}
+
+/* Efek sparkle kecil */
+.sparkle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: gold;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: sparkle 2s linear infinite;
+}
+@keyframes sparkle {
+    0% { transform: translateY(0) scale(1); opacity: 0.8; }
+    50% { transform: translateY(-10px) scale(1.5); opacity: 1; }
+    100% { transform: translateY(0) scale(1); opacity: 0.8; }
 }
 </style>
 </head>
@@ -74,7 +128,7 @@ p {
     <div class="ketupat"></div>
 </div>
 
-<p>تَقَبَّلَ اللَّهُ مِنَّا وَمِنْكُمْ</p>
+<p class="emphasize">تَقَبَّلَ اللَّهُ مِنَّا وَمِنْكُمْ</p>
 <p><em>"Taqabalallahu minna wa minkum"</em></p>
 
 <p>✨ <strong>Mohon maaf lahir dan batin</strong> ✨</p>
@@ -87,6 +141,23 @@ Mari kita saling memaafkan.<br>
 Semoga hari yang fitri ini membawa berkah & kebahagiaan.</p>
 
 <p class="footer">🌟 REXZ HUB 🌟<br>1 Syawal 1446 H / 2025 M</p>
+
+<!-- Sparkle animation -->
+<div class="sparkle" style="top:50px; left:20%;"></div>
+<div class="sparkle" style="top:100px; left:70%;"></div>
+<div class="sparkle" style="top:200px; left:40%;"></div>
+
+<!-- Confetti animation -->
+<script>
+for(let i=0;i<30;i++){
+    const conf = document.createElement('div');
+    conf.classList.add('confetti');
+    conf.style.left = Math.random()*100 + 'vw';
+    conf.style.backgroundColor = `hsl(${Math.random()*360}, 80%, 50%)`;
+    conf.style.animationDuration = 3 + Math.random()*3 + 's';
+    document.body.appendChild(conf);
+}
+</script>
 
 </body>
 </html>
