@@ -3,62 +3,107 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rexz Lag Lite</title>
+<title>RexzRamadhan</title>
 
 <style>
 body {
-    background: #0d0d0d;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #0f3d2e, #14532d);
     color: white;
-    font-family: Arial;
     text-align: center;
 }
 
-button {
-    background: red;
-    border: none;
-    padding: 10px 20px;
-    color: white;
-    margin: 10px;
-    border-radius: 8px;
+/* HEADER */
+.header {
+    padding: 40px 20px;
 }
 
-.box {
-    width: 30px;
-    height: 30px;
-    background: cyan;
-    margin: 3px;
+.header h1 {
+    font-size: 40px;
+    color: gold;
+}
+
+.header p {
+    opacity: 0.8;
+}
+
+/* CARD */
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    background: rgba(255,255,255,0.05);
+    border-radius: 15px;
+    padding: 20px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    background: rgba(255,255,255,0.1);
+}
+
+/* BUTTON */
+.btn {
     display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: gold;
+    color: black;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* FOOTER */
+.footer {
+    margin-top: 30px;
+    padding: 20px;
+    opacity: 0.7;
 }
 </style>
 </head>
 
 <body>
 
-<h2>⚡ Rexz Lag Lite (Aman HP)</h2>
+<div class="header">
+    <h1>🌙 Selamat Ramadhan</h1>
+    <p>Minal Aidzin Walfaizin 🙏</p>
+</div>
 
-<button onclick="startLag()">Start</button>
-<button onclick="stopLag()">Stop</button>
+<div class="container">
 
-<div id="container"></div>
+    <div class="card">
+        <h2>💸 Minta THR</h2>
+        <p>Klik tombol di bawah buat kirim THR 😁</p>
+        <a class="btn" href="#">Kirim THR</a>
+    </div>
 
-<script>
-let lagInterval;
+    <div class="card">
+        <h2>📿 Doa Hari Ini</h2>
+        <p>Semoga puasanya lancar dan penuh berkah</p>
+    </div>
 
-function startLag() {
-    lagInterval = setInterval(() => {
-        for (let i = 0; i < 10; i++) { // cuma 10
-            let div = document.createElement("div");
-            div.className = "box";
-            document.getElementById("container").appendChild(div);
-        }
-    }, 1000); // 1 detik sekali (ringan)
-}
+    <div class="card">
+        <h2>🍽️ Menu Buka</h2>
+        <p>Kolak + Es Teh + Gorengan 🔥</p>
+    </div>
 
-function stopLag() {
-    clearInterval(lagInterval);
-    document.getElementById("container").innerHTML = "";
-}
-</script>
+    <div class="card">
+        <h2>🎁 Event Lebaran</h2>
+        <p>Bagi-bagi hadiah & THR spesial!</p>
+    </div>
+
+</div>
+
+<div class="footer">
+    <p>© 2026 RexzHub Ramadhan Edition</p>
+</div>
 
 </body>
 </html>
